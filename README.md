@@ -24,5 +24,5 @@ Utilize as configurações do arquivo application.properties para configurar o b
 Alterar as anotações do Cross no controllers para ``@CrossOrigin(origins = "http://localhost:4200/")``
 O Eclipse deve baixar algumas dependencias para configurar o projeto, aguarde até finalizar. Ao finalizar, você pode executar a aplicação
 
-Para rodar o front end, após baixar o projeto você pode abrir com o vscode, abrir um terminal e rodar " ng s --o "
+Para rodar o front end, após baixar o projeto você pode abrir com o vscode, abrir um terminal e rodar ``ng s --o``
 Vai abrir no navegador 🏆
