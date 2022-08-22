@@ -1,6 +1,6 @@
 import { Autores } from './../models/autor';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,22 +13,20 @@ import { AutorServiceService } from '../services/autor-service.service';
 })
 export class FormularioAutoresComponent implements OnInit {
 
-  form: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar, private autoresService: AutorServiceService, private TitleService:Title) {this.TitleService.setTitle('Formulario Autor');
-
-  this.form = this.formBuilder.group({
+  form = this.formBuilder.group({
     id: [''],
     nome:[''],
     biografia: ['']
   });
+
+  constructor(private formBuilder: UntypedFormBuilder, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar, private autoresService: AutorServiceService, private TitleService:Title) {this.TitleService.setTitle('Formulario Autor');
 
  }
 
   ngOnInit(): void {
     const autores: Autores = this.route.snapshot.data['autores'];
     this.form.setValue({
-      _id: autores.id,
+      id: autores.id,
       name: autores.nome,
       category: autores.biografia
     });

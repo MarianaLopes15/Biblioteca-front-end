@@ -26,6 +26,13 @@
         <input matInput placeholder="Ano de Lançamento" formControlName="anoLancamento">
       </mat-form-field>
 
+      <div class="col-sm-4">
+        <select class="form-control" formControlName="autoresIds" name="autoresIds">
+          <option value="" selected disabled>Selecione um Autor</option>
+          <option *ngFor="let autor of autores" value={{autor.id}}>{{autor.nome}}</option>
+        </select>
+      </div>
+
     </form>
   </mat-card-content>
   <mat-card-actions>

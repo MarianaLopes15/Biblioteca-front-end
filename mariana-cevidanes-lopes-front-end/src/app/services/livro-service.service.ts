@@ -26,6 +26,6 @@ export class LivroServiceService {
   }
 
   save(record: Livros){
-    return this.httpClient.post(`${APIURL}/livros/criaLivro`, record)
+    return this.httpClient.post(`${APIURL}/livros`, record)
   }
 }
