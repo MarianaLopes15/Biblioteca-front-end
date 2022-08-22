@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar color="primary">
+  <span>Biblioteca</span>
+  <ul>
+    <a class="mat-button" routerLink="/home">Home</a>
+  </ul>
+  <ul>
+    <a class="mat-button" routerLink="/listar-livros">Livros</a>
+  </ul>
+  <ul>
+    <a class="mat-button" routerLink="/listar-autores" >Autores</a>
+  </ul>
+</mat-toolbar>
+<br>
+<h1>
+  Livros
+</h1>
+<a class="mat-button"
+  routerLink="/formulario-livros">
+  Criar Livro<mat-icon>add_box</mat-icon>
+</a>
+<hr>
+<br>
+<table mat-table>
+  <thead>
+    <tr>
+      <th mat-header-cell>ID</th>
+      <th mat-header-cell>Titulo</th>
+      <th mat-header-cell>Ano de Lançamento</th>
+      <th mat-header-cell>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let livros of livros" id="livro">
+      <td mat-cell>{{ livros.id }}</td>
+      <td mat-cell>{{ livros.titulo }}</td>
+      <td mat-cell>{{ livros.anoLancamento }}</td>
+      <td mat-cell>
+        <a class="mat-button"
+        [routerLink]="['formulario-livro', livros.id]">
+          <mat-icon>create</mat-icon>
+        </a>
+        <a
+        (click)="solicitacaoRemocaoLivro(livros)"
+        class="mat-button">
+        <mat-icon>delete_forever</mat-icon>
+      </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="livros.length <= 0 && erroListaLivro==''">
+  Ops! Nenhum livro foi encontrado.
+</div>
+
+<div *ngIf="erroListaLivro !='' " >
+  {{erroListaLivro}}
+</div>
+
+<div *ngIf="erroDeletarLivro !='' " >
+  {{erroDeletarLivro}}
+</div>
+
+<div *ngIf="sucessoDeletarLivro !='' " >
+  {{sucessoDeletarLivro}}
+</div>

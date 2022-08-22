@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <span>Biblioteca</span>
+  <ul>
+    <a class="mat-button" routerLink="/home">Home</a>
+  </ul>
+  <ul>
+    <a class="mat-button" routerLink="/listar-livros">Livros</a>
+  </ul>
+  <ul>
+    <a class="mat-button" routerLink="/listar-autores" >Autores</a>
+  </ul>
+</mat-toolbar>
+<br>
+<h1>Autores</h1>
+<a class="mat-button"
+  routerLink="/formulario-autores">
+  Criar Autor<mat-icon>add_box</mat-icon>
+</a>
+<hr>
+<br>
+<table mat-table>
+  <thead>
+    <tr>
+      <th mat-header-cell>ID</th>
+      <th mat-header-cell>Nome</th>
+      <th mat-header-cell>Biografia</th>
+      <th mat-header-cell>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let autores of autores" id="autores">
+    <td mat-cell>{{ autores.id }}</td>
+    <td mat-cell>{{ autores.nome }}</td>
+    <td mat-cell>{{ autores.biografia }}</td>
+    <td mat-cell>
+      <a
+        [routerLink]="['/formulario-autores', autores.id]"
+        class="mat-button">
+        <mat-icon>create</mat-icon>
+      </a>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="autores.length <= 0 && erroListaAutor==''">
+  Ops! Nenhum autor cadastrado.
+</div>
+
+<div *ngIf="erroListaAutor !='' " >
+  {{erroListaAutor}}
+</div>
