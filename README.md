@@ -3,6 +3,8 @@
 Teste de avaliação 02 
 Projeto front end para uma biblioteca, realizado por Mariana Lopes.
 
+## Funcionalidades de cadastro e edição não estão funcionando, para testar o listar e excluir tem que cadastrar via postman 😕
+
 ## ✔️ Técnicas e tecnologias utilizadas
 
 - ``Angular 14``
