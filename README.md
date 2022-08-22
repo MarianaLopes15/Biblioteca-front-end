@@ -3,7 +3,8 @@
 Teste de avaliação 02 
 Projeto front end para uma biblioteca, realizado por Mariana Lopes.
 
-## Funcionalidades de cadastro e edição não estão funcionando, para testar o listar e excluir tem que cadastrar via postman 😕
+## Funcionalidades de Lista Livros, Listar Autores, Cadastrar Autores e Excluir Livros estão funcionando.
+## As funcionalidades de cadastro e edição do livro e edição do autor não estão funcionando, para testar o listar e excluir dos livros tem que cadastrar via postman 😕
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
