@@ -22,6 +22,6 @@ export class AutorServiceService {
   }
 
   save(record: Autores){
-    return this.httpClient.post(`${APIURL}/autores/criaAutor`, record)
+    return this.httpClient.post(`${APIURL}/autores`, record)
   }
 }

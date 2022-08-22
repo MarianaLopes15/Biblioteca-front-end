@@ -1,3 +1,4 @@
+import { AutorServiceService } from './../services/autor-service.service';
 import { Livros } from './../models/livro';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
@@ -5,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LivroServiceService } from '../services/livro-service.service';
+import { Autores } from '../models/autor';
 
 @Component({
   selector: 'app-formulario-livros',
@@ -13,13 +15,14 @@ import { LivroServiceService } from '../services/livro-service.service';
 })
 export class FormularioLivrosComponent implements OnInit {
 
+  autores: Autores[] = [];
   form = this.formBuilder.group({
     id: [''],
     titulo:[''],
     anoLancamento: ['']
   });;
 
-  constructor(private formBuilder: UntypedFormBuilder, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar , private livrosService: LivroServiceService, private TitleService:Title) {this.TitleService.setTitle('Formulario Livro');
+  constructor(private autoresService: AutorServiceService, private formBuilder: UntypedFormBuilder, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar , private livrosService: LivroServiceService, private TitleService:Title) {this.TitleService.setTitle('Formulario Livro');
 
 
    }
@@ -27,9 +30,15 @@ export class FormularioLivrosComponent implements OnInit {
   ngOnInit(): void {
     const livros: Livros = this.route.snapshot.data['livros'];
     this.form.setValue({
-      _id: livros.id,
+      id: livros.id,
       name: livros.titulo,
       category: livros.anoLancamento
+    });
+
+    this.autoresService.listarAutores().subscribe({
+      next: todosOsAutores => {
+        this.autores = todosOsAutores as Autores[];
+      }
     });
 
   }
@@ -50,4 +59,5 @@ export class FormularioLivrosComponent implements OnInit {
   private onError() {
     this.snackBar.open("Erro ao salvar livro.", "", {duration: 5000});
   }
+
 }
