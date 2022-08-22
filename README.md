@@ -1,18 +1,18 @@
-#ProjetoBiblioteca
+# ProjetoBiblioteca
 
 Teste de avaliação 02 
 Projeto front end para uma biblioteca, realizado por Mariana Lopes.
 
-##✔️ Técnicas e tecnologias utilizadas
+## ✔️ Técnicas e tecnologias utilizadas
 
 - ``Angular 14``
 
 
-##📁 Acesso ao projeto
+## 📁 Acesso ao projeto
 
 Você pode acessar os arquivos do projeto back-end clicando [aqui] (https://github.com/aceleragep/biblioteca.git).
 
-##🛠️ Abrir e rodar o projeto
+## 🛠️ Abrir e rodar o projeto
 
 Após baixar o projeto, você pode abrir com o Eclipse. Para isso, na tela incial da IDE no 'Project Explorer' clique com o botão direito e em import > import...
 
