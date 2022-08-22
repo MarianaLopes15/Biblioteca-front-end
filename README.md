@@ -10,7 +10,7 @@ Projeto front end para uma biblioteca, realizado por Mariana Lopes.
 
 ## 📁 Acesso ao projeto
 
-Você pode acessar os arquivos do projeto back-end clicando [aqui] (https://github.com/aceleragep/biblioteca.git).
+Você pode acessar os arquivos do projeto back-end clicando [aqui](https://github.com/aceleragep/biblioteca.git).
 
 ## 🛠️ Abrir e rodar o projeto
 
