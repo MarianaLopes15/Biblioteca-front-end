@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { Autores } from '../models/autor';
 import { AutorServiceService } from '../services/autor-service.service';
@@ -13,7 +14,7 @@ export class ListarAutoresComponent implements OnInit {
 
   erroListaAutor: string ='';
 
-  constructor(private TitleService:Title,
+  constructor(private TitleService:Title, private snackBar: MatSnackBar,
     private autorService: AutorServiceService) {this.TitleService.setTitle('Autores'); }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class ListarAutoresComponent implements OnInit {
     this.autorService.listarAutores().subscribe(successData => {
       this.autores = successData
     }, error=> {
-      this.erroListaAutor = "Ocorreu um erro ao buscar os livros"
+      this.snackBar.open("Ocorreu um erro ao buscar os autores", "", {duration: 5000});
       }
     );
   }

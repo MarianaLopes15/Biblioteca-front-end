@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { Autores } from '../models/autor';
 import { Livros } from '../models/livro';
@@ -17,7 +18,7 @@ export class ListarLivrosComponent implements OnInit {
   erroDeletarLivro: string ='';
   sucessoDeletarLivro: string ='';
 
-  constructor(private livrosService: LivroServiceService,
+  constructor(private livrosService: LivroServiceService, private snackBar: MatSnackBar,
     private TitleService:Title) {this.TitleService.setTitle('Livros');}
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class ListarLivrosComponent implements OnInit {
     this.livrosService.listarLivros().subscribe(successData => {
       this.livros = successData
     }, error=> {
-      this.erroListaLivro = "Ocorreu um erro ao buscar os livros"
+      this.snackBar.open("Ocorreu um erro ao buscar os livros", "", {duration: 5000});
       }
     );
 
@@ -38,10 +39,11 @@ export class ListarLivrosComponent implements OnInit {
     console.log(livro.id)
     if(confirm(text) == true) {
       this.livrosService.deletar(livro.id).subscribe(successData => {
-        this.sucessoDeletarLivro = "Livro " + livro.titulo + " removido com sucesso"
+        this.snackBar.open("Livro " + livro.titulo + " removido com sucesso", "", {duration: 5000});
         this.listarLivros();
       }, error=> {
-        this.erroDeletarLivro = "Ocorreu um erro ao deletar o livro" + livro.titulo
+        this.snackBar.open("Ocorreu um erro ao deletar o livro"+ livro.titulo, "", {duration: 5000});
+
         }
       );
     }

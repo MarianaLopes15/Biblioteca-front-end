@@ -20,4 +20,8 @@ export class AutorServiceService {
       return resultado as Autores[];
     }));
   }
+
+  save(record: Autores){
+    return this.httpClient.post(`${APIURL}/autores/criaAutor`, record)
+  }
 }

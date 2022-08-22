@@ -7,7 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ControlConfig } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { ListarLivrosComponent } from './listar-livros/listar-livros.component';
 import { ListarAutoresComponent } from './listar-autores/listar-autores.component';
@@ -32,8 +38,12 @@ import { FormularioLivrosComponent } from './formulario-livros/formulario-livros
     MatToolbarModule,
     HttpClientModule,
     MatIconModule,
-    FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

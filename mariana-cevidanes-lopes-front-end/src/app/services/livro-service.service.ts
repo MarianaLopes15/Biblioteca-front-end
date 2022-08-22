@@ -24,4 +24,8 @@ export class LivroServiceService {
   deletar(id: number) : Observable<void>{
     return this.httpClient.delete<void>(`${APIURL}/livros/${id}`);
   }
+
+  save(record: Livros){
+    return this.httpClient.post(`${APIURL}/livros/criaLivro`, record)
+  }
 }
